@@ -1,7 +1,7 @@
 # When we do npm run dev then what happens ?
 
 
-1. npm Checks the package.json File :
+# 1. npm Checks the package.json File :
 
   * When you run npm run dev, npm looks into the package.json file in your project and finds the "scripts" section.
   Specifically, it looks for the "dev" key. For example :
@@ -13,7 +13,7 @@
 
 
 
-2. Vite local Development Server Starts :
+# 2. Vite local Development Server Starts :
 
   * Vite (or another tool like Webpack or Next.js, depending on your setup) is a modern build tool that starts a local development server. 
 
@@ -23,7 +23,7 @@
 
 
 
-3. Browser Requests the URL :
+# 3. Browser Requests the URL :
 
     * When you open your browser and navigate to http://localhost:5173 (or the port Vite is running on), the following happens:
 
@@ -42,7 +42,7 @@
 
 
 
-4. Browser Requests main.jsx :
+# 4. Browser Requests main.jsx :
 
     * When the browser encounters the <script type="module" src="/src/main.jsx"> tag, it sends a request to the Vite local development server to fetch the main.jsx file. Here’s what happens next:
 
@@ -74,7 +74,7 @@
           * The browser runs the JavaScript code line-by-line. This is where createRoot, document.getElementById('root'), and root.render(<App />) come into play.
 
 
-5. Understanding createRoot
+# 5. Understanding createRoot
 
   ## What is createRoot?
 
@@ -94,7 +94,7 @@
 
 
 
-6. What Happens in root.render(<App />)?
+# 6. What Happens in root.render(<App />)?
 
     * The render method (called on the root object) tells React to render the App component (and its children) into the <div id="root">.
 
