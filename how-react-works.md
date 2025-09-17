@@ -106,15 +106,15 @@
 
   ### When root.render(<App />) is executed:
 
-    1. React calls the App component (from App.jsx), which returns JSX. For example:
+    * React calls the App component (from App.jsx), which returns JSX. For example:
 
     ![App.jsx before](./AppComponent.png)
 
-    2. React converts the JSX into a Virtual DOM, which is a JavaScript object representing the UI structure. For the above  App, the Virtual DOM looks like (simplified):
+    * React converts the JSX into a Virtual DOM, which is a JavaScript object representing the UI structure. For the above  App, the Virtual DOM looks like (simplified):
 
     ![App.jsx code converted into virtual Dom and passed in root contianer](./App-jsx-into-VirtualDom.png)
 
-    3. React uses the Virtual DOM to update the real DOM inside ```<div id="root">```. After rendering, the real DOM looks like:
+    * React uses the Virtual DOM to update the real DOM inside ```<div id="root">```. After rendering, the real DOM looks like:
 
     ![Real Dom](./AppComponent.png)
 
