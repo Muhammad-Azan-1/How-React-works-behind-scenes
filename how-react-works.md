@@ -83,7 +83,7 @@
 
   * createRoot is a function from the react-dom/client library (introduced in React 18). It’s used to set up a React root, which is a connection point between your React application and the browser’s DOM.
 
-  * Syntax: createRoot(container) takes a DOM element (e.g.,<div id="root"></div>) as an argument and returns a root object that React uses to manage rendering.
+  * Syntax: createRoot(container) takes a DOM element (e.g.,<div id="root">Root Container</div>) as an argument and returns a root object that React uses to manage rendering.
 
    * What Does It Do in createRoot(document.getElementById('root'))?
 
