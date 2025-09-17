@@ -61,7 +61,7 @@
 
   #### Example of main.jsx before processing:
 
-  ![mani.jsx before](./before.png)
+  ![main.jsx before](./before.png)
 
   #### Example of main.jsx After Vite’s processing (simplified):
 
@@ -106,17 +106,17 @@
 
   ### When root.render(<App />) is executed:
 
-    * React calls the App component (from App.jsx), which returns JSX. For example:
+  * React calls the App component (from App.jsx), which returns JSX. For example:
 
-    ![App.jsx before](./AppComponent.png)
+  ![App.jsx before](./AppComponent.png)
 
-    * React converts the JSX into a Virtual DOM, which is a JavaScript object representing the UI structure. For the above  App, the Virtual DOM looks like (simplified):
+  * React converts the JSX into a Virtual DOM, which is a JavaScript object representing the UI structure. For the above  App, the Virtual DOM looks like (simplified):
 
-    ![App.jsx code converted into virtual Dom and passed in root contianer](./App-jsx-into-VirtualDom.png)
+  ![App.jsx code converted into virtual Dom and passed in root container](./App-jsx-into-VirtualDom.png)
 
-    * React uses the Virtual DOM to update the real DOM inside ```<div id="root">```. After rendering, the real DOM looks like:
+  * React uses the Virtual DOM to update the real DOM inside ```<div id="root">```. After rendering, the real DOM looks like:
 
-    ![Real Dom](./AppComponent.png)
+  ![Real Dom](./AppComponent.png)
 
 
 # NOTE
