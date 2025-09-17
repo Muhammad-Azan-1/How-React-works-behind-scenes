@@ -17,26 +17,26 @@
 
   * Vite (or another tool like Webpack or Next.js, depending on your setup) is a modern build tool that starts a local development server. 
 
-  * This server typically runs on a default address like http://localhost:5173 (Vite’s default port) or http://localhost:3000 
-  (common for Next.js or other tools). At this point, Vite is running in the background, ready to handle requests from the browser.
+  * This server typically runs on a default address like ```http://localhost:5173``` (Vite’s default port) or
+  ```http://localhost:3000 ```(common for Next.js or other tools). At this point, Vite is running in the background, ready to handle requests from the browser.
 
 
 
 
 # 3. Browser Requests the URL :
 
-  * When you open your browser and navigate to http://localhost:5173 (or the port Vite is running on), the following happens:
+  * When you open your browser and navigate to  ```http://localhost:5173 ``` (or the port Vite is running on), the following happens:
 
   * Browser Sends a Request to the Local Dev Server through this url :
 
-  * The browser sends an HTTP request to the local development server (e.g., http://localhost:5173/).
+  * The browser sends an HTTP request to the local development server (e.g., ```http://localhost:5173/```).
     The server responds with the entry point of your application, which is typically an index.html file located in your project’s root or public folder
 
     ### This index.html files containes
 
-  * The <div id="root"></div> is an empty container where your React application will be mounted.
+  * The ```<div id="root"></div>``` is an empty container where your React application will be mounted.
 
-  * The <script type="module" src="/src/main.jsx"></script> tells the browser to load the main.jsx file, which is the entry point for your JavaScript/React code.
+  * The ```<script type="module" src="/src/main.jsx"></script>``` tells the browser to load the main.jsx file, which is the entry point for your JavaScript/React code.
 
   * The type="module" attribute indicates that the script is an ES Module, allowing modern JavaScript features like import and export.  
 
@@ -44,7 +44,7 @@
 
 # 4. Browser Requests main.jsx :
 
-  * When the browser encounters the <script type="module" src="/src/main.jsx"> tag, it sends a request to the Vite local development server to fetch the main.jsx file. Here’s what happens next:
+  * When the browser encounters the ```<script type="module" src="/src/main.jsx">``` tag, it sends a request to the Vite local development server to fetch the main.jsx file. Here’s what happens next:
 
   ### Vite local Development server Processes main.jsx:
            
@@ -87,19 +87,22 @@
 
    * What Does It Do in createRoot(document.getElementById('root'))?
 
-   * document.getElementById('root') is standard JavaScript that finds the <div id="root"> element in the index.html file. For example:
+   * document.getElementById('root') is standard JavaScript that finds the ```<div id="root">``` element in the index.html file. For example:
 
-   <div id="root"></div>
 
-   * createRoot(document.getElementById('root')) tells React: “Use this <div id="root"> as the root container where I’ll render my React application.”
+  ``` <div id="root"></div> ```
+  
 
-  * It returns a React root object, which has methods like render to control what gets displayed inside <div id="root">.
+   * createRoot(document.getElementById('root')) tells React: “Use this``` <div id="root">``` as the root container where I’ll render my React application.”
+
+  * It returns a React root object, which has methods like render to control what gets displayed inside ```<div id="root">```.
 
 
 
 # 6. What Happens in root.render(<App />)?
 
-  * The render method (called on the root object) tells React to render the App component (and its children) into the <div id="root">.
+  * The render method (called on the root object) tells React to render the App component (and its children) into the 
+  ```<div id="root">.```
 
   ### When root.render(<App />) is executed:
 
@@ -111,11 +114,11 @@
 
     ![App.jsx code converted into virtual Dom and passed in root contianer](./App-jsx-into-VirtualDom.png)
 
-    3. React uses the Virtual DOM to update the real DOM inside <div id="root">. After rendering, the real DOM looks like:
+    3. React uses the Virtual DOM to update the real DOM inside ```<div id="root">```. After rendering, the real DOM looks like:
 
     ![Real Dom](./AppComponent.png)
 
 
 # NOTE
 
-  The Real DOM lives inside the root container (<div id="root">), and React continuously updates it based on changes detected in the Virtual DOM.”
+  The Real DOM lives inside the root container (```<div id="root">```), and React continuously updates it based on changes detected in the Virtual DOM.”
