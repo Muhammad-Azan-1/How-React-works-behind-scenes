@@ -89,7 +89,7 @@
 
    * document.getElementById('root') is standard JavaScript that finds the <div id="root"> element in the index.html file. For example:
 
-   <u><b> html<div id="root"></div> </b></u>
+   <div id="root"></div>
 
    * createRoot(document.getElementById('root')) tells React: “Use this <div id="root"> as the root container where I’ll render my React application.”
 
