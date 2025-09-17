@@ -102,23 +102,62 @@
 # 6. What Happens in root.render(<App />)?
 
   * The render method (called on the root object) tells React to render the App component (and its children) into the 
-  ```<div id="root">.```
+    root container which is
+  
+  ```html
+  <div id="root"></div>
+  ```
 
-  ### When root.render(<App />) is executed:
+  ## When root.render(<App />) is executed:
+  
+  * root.render(<App />) is executed means root.render(React.createElement(App)) executed. Why? Because when browser requests Vite server to return main.jsx file content, then Vite server first processes main.jsx file and converts it from JSX to JS. root.render(<App />) → root.render(React.createElement(App))
+
+  ### So when root.render(<App />) executed it means root.render(React.createElement(App)) is executed :
+
+  When browser executes root.render(React.createElement(App)), it creates a React Element object and then React calls the App component function.
+
+
+  * MAIN STEPS STARTED FROM HERE
+
+
+  ### 6.1 React call App Component and it Returns JSX :
 
   * React calls the App component (from App.jsx), which returns JSX. For example:
 
   ![App.jsx before](./AppComponent.png)
 
-  * React converts the JSX into a Virtual DOM, which is a JavaScript object representing the UI structure. For the above  App, the Virtual DOM looks like (simplified):
+  ### 6.4 App Component's JSX Gets Converted to JS :
 
-  ![App.jsx code converted into virtual Dom and passed in root container](./App-jsx-into-VirtualDom.png)
+  * The JSX returned by App component also needs to be converted to JavaScript:
 
-  * React uses the Virtual DOM to update the real DOM inside ```<div id="root">```. After rendering, the real DOM looks like:
+  ![App.jsx After](./AppComponentAfter.png)
 
-  ![Real Dom](./AppComponent.png)
+  ### 6.5 React Creates Virtual DOM
+
+  * React uses the converted JavaScript to create Virtual DOM structure:
+
+      ![Virtual Dom](./AppComponent-VirtualDom.png)
+
+
+  ### 6.6 Virtual DOM to Real DOM Update
+
+  * React uses the Virtual DOM to update the actual DOM inside <div id="root">
+
+ #### Before rendering:
+
+   ![Real Dom Before Rendering](./before-rendering-real-dom.png)
+
+ #### After rendering
+
+  ![Real Dom After Rendering](./after-rendering-real-dom.png)
+
+
+
 
 
 # NOTE
 
   The Real DOM lives inside the root container (```<div id="root">```), and React continuously updates it based on changes detected in the Virtual DOM.”
+
+
+
