@@ -142,18 +142,18 @@
 
   The children elements or content.
 
-  ![React Element object of the content inside App component](./reactElement2.png)
+  ![React Element object of the content inside App component](./reactElemet2.png)
 
 
   ### 6.5 React Creates Virtual DOM
 
   * React then uses these React Element objects to construct the Virtual DOM tree, which is a lightweight, in-memory representation of the UI.
 
-  The object you posted = React Element object.
+  The object  = React Element object.
   Many of these objects together (nested) = Virtual DOM tree.
   So they’re not 100% the same, but Virtual DOM is made out of React Elements.
 
-    ![Virtual Dom](./reactElement2.png)
+    ![Virtual Dom](./reactElemet2.png)
 
 
   ### 6.6 Virtual DOM to Real DOM Update
