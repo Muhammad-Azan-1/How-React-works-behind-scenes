@@ -177,12 +177,17 @@
 ![Summary](./Summary.png)
 
 
+
 “The Real DOM lives inside the root container (<div id="root">). When root.render() is called, JSX is converted into React Element objects, which form the Virtual DOM. React then uses reconciliation to compare the Virtual DOM with the current Real DOM, and only the necessary changes are applied inside the selected root container of Real DOM.” 
 
 The selected root container is from the Real DOM which React by defualt selected using ReactDom.createRoot() 
 with tells that this is where the whole app will be rendered
 
 
+
+# Extra
+
+![Extra flow example](./Example-flow.png)
 
 
 
