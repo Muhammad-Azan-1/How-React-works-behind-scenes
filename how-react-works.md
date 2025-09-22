@@ -138,9 +138,9 @@
 
   The type (could be an HTML tag like 'div' or another React component),
 
-  The props (attributes and children), and
+  The props (attributes of elements i.e hre , target etc), and
 
-  The children elements or content.
+  The children elements or content. of the element of which React Element object is created
 
   ![React Element object of the content inside App component](./reactElemet2.png)
 
