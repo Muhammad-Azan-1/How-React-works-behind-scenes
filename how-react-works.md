@@ -22,7 +22,6 @@
 
 
 
-
 # 3. Browser Requests the URL :
 
   * When you open your browser and navigate to  ```http://localhost:5173 ``` (or the port Vite is running on), the following happens:
@@ -32,7 +31,7 @@
   * The browser sends an HTTP request to the local development server (e.g., ```http://localhost:5173/```).
     The server responds with the entry point of your application, which is typically an index.html file located in your project’s root or public folder
 
-    ### This index.html files containes
+### This index.html files containes
 
   * The ```<div id="root"></div>``` is an empty container where your React application will be mounted.
 
@@ -46,7 +45,7 @@
 
   * When the browser encounters the ```<script type="module" src="/src/main.jsx">``` tag, it sends a request to the Vite local development server to fetch the main.jsx file. Here’s what happens next:
 
-  ### Vite local Development server Processes main.jsx:
+### Vite local Development server Processes main.jsx:
            
   * main.jsx contains JSX (React’s syntax) and ES Module import statements, which browsers can’t execute directly.
 
@@ -59,27 +58,27 @@
 
   * Vite sends this processed JavaScript to the browser as an ES Module.
 
-  #### Example of main.jsx before processing:
+#### Example of main.jsx before processing:
 
   ![main.jsx before](./before.png)
 
-  #### Example of main.jsx After Vite’s processing (simplified):
+#### Example of main.jsx After Vite’s processing (simplified):
 
   ![main.jsx after](./after.png)
 
-  ### Browser Loads main.jsx:
+### Browser Loads main.jsx:
 
   * The browser receives the processed JavaScript code and loads it into memory. At this point, nothing is displayed on the screen because the code hasn’t been executed yet.
 
 
-  ### Browser Executes main.jsx:
+### Browser Executes main.jsx:
 
   * The browser runs the JavaScript code line-by-line. This is where createRoot, document.getElementById('root'), and root.render(<App />) come into play.
 
 
 # 5. Understanding createRoot
 
-  ## What is createRoot?
+## What is createRoot?
 
   * createRoot is a function from the react-dom/client library (introduced in React 18). It’s used to set up a React root, which is a connection point between your React application and the browser’s DOM.
 
@@ -101,42 +100,60 @@
 
 # 6. What Happens in root.render(<App />)?
 
-  * The render method (called on the root object) tells React to render the App component (and its children) into the 
-    root container which is
-  
+* When the browser reaches and executes `root.render(<App />)`, the `render` method of the `root` object is called.  
+* This tells React to start the process of rendering the `<App />` component (and its children) inside the root container, which is the HTML element:
+
   ```html
   <div id="root"></div>
   ```
 
-  ## When root.render(<App />) is executed:
+## When root.render(<App />) is executed:
   
   * root.render(<App />) is executed means root.render(React.createElement(App)) executed. Why? Because when browser requests Vite server to return main.jsx file content, then Vite server first processes main.jsx file and converts it from JSX to JS. root.render(<App />) → root.render(React.createElement(App))
 
-  ### So when root.render(<App />) executed it means root.render(React.createElement(App)) is executed :
+### So when root.render(<App />) executed it means root.render(React.createElement(App)) is executed :
 
-  When browser executes root.render(React.createElement(App)), it creates a React Element object and then React calls the App component function.
+  When browser executes root.render(React.createElement(App)), it creates a React Element object which is basically a JavaScript object describing the component and its props. Then, when root.render() receives that React Element, React sees that the element’s type is a function (App component).
 
+  ![React Element object of <App /> component](./reactElements.png)
 
   * MAIN STEPS STARTED FROM HERE
 
-
-  ### 6.1 React call App Component and it Returns JSX :
+### 6.1 React calls the App function to get the JSX it returns. :
 
   * React calls the App component (from App.jsx), which returns JSX. For example:
 
   ![App.jsx before](./AppComponent.png)
 
-  ### 6.4 App Component's JSX Gets Converted to JS :
+  the jsx is not understand by browser because it’s not valid JavaScript.
+  This JSX is transformed into React.createElement calls by the build tool (like Vite/Babel).
 
-  * The JSX returned by App component also needs to be converted to JavaScript:
+### 6.4 App Component's JSX Gets Converted to React.createElement calls  :
+
+  * The JSX returned by App component also needs to be converted in  React.createElement calls:
 
   ![App.jsx After](./AppComponentAfter.png)
 
+  * Each React.createElement call creates a React Element object, which is basically a plain JavaScript object describing:
+
+  The type (could be an HTML tag like 'div' or another React component),
+
+  The props (attributes and children), and
+
+  The children elements or content.
+
+  ![React Element object of the content inside App component](./reactElement2.png)
+
+
   ### 6.5 React Creates Virtual DOM
 
-  * React uses the converted JavaScript to create Virtual DOM structure:
+  * React then uses these React Element objects to construct the Virtual DOM tree, which is a lightweight, in-memory representation of the UI.
 
-      ![Virtual Dom](./AppComponent-VirtualDom.png)
+  The object you posted = React Element object.
+  Many of these objects together (nested) = Virtual DOM tree.
+  So they’re not 100% the same, but Virtual DOM is made out of React Elements.
+
+    ![Virtual Dom](./reactElement2.png)
 
 
   ### 6.6 Virtual DOM to Real DOM Update
@@ -161,3 +178,25 @@
 
 
 
+
+
+
+<!-- const element = {
+  type: React.Fragment,
+  key: null,
+  ref: null,
+  props: {
+    children: {
+      type: 'h1',
+      key: null,
+      ref: null,
+      props: {
+        children: 'Hello world from App function'
+      },
+      _owner: null,
+      _store: {}
+    }
+  },
+  _owner: null,
+  _store: {}
+}; -->
